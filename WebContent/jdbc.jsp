@@ -1,4 +1,5 @@
-<!--
+<%
+/**
 A JSP file that encapsulates all database access.
 
 Public methods:
@@ -6,21 +7,19 @@ Public methods:
 - public ResultSet executeQuery(String query) throws SQLException
 - public void executeUpdate(String query) throws SQLException
 - public void closeConnection() throws SQLException  
-
--->
-
+**/
+%>
 <%@ page import="java.sql.*"%>
-
 <%!
+	// TODO: Modify database/user connection info
 	// User id, password, and server information
-	private String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-	private String uid = "SA";
-	private String pw = "YourStrong@Passw0rd";
+	String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
+	String uid = "SA";
+	String pw = "YourStrong@Passw0rd";
 
 	// Connection
 	private Connection con = null;
 %>
-
 <%!
 	public void getConnection() throws SQLException 
 	{
@@ -36,10 +35,14 @@ Public methods:
 		con = DriverManager.getConnection(url, uid, pw);
 	}
    
-	public void closeConnection() throws SQLException 
+	public void closeConnection()
 	{
-		if (con != null)
-			con.close();
-		con = null;
+		try {
+			if (con != null)
+				con.close();
+			con = null;	
+		}
+		catch (SQLException e)
+		{ /* Ignore connection close error */ }
 	}
 %>

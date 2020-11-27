@@ -80,13 +80,13 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);)
 	}else {
 		custName = rst.getString(2);
 		
-	sql = "INSERT INTO ordersummary(orderDate,customerId) VALUES(?,?) "; 
+	sql = "INSERT INTO ordersummary(orderDate,customerId) VALUES(?, ?) "; 
 
-	DateTimeFormatter datetime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	LocalDateTime now = LocalDateTime.now(); 
+	DateTimeFormatter sdtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	LocalDateTime currenttime = LocalDateTime.now(); 
 
 	pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-	pstmt.setString(1, datetime.format(now));
+	pstmt.setString(1, sdtf.format(currenttime));
 	pstmt.setString(2, custId);
 	pstmt.executeUpdate();
 
