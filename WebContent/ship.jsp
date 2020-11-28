@@ -9,7 +9,7 @@
 
 <html>
 <head>
-<title>YOUR NAME Grocery Shipment Processing</title>
+<title>Jace's Grocery Shipment Processing</title>
 </head>
 <body>
         
@@ -42,7 +42,7 @@
 			ResultSet rst = stmt.executeQuery(String.format("SELECT productId, quantity FROM orderproduct WHERE orderId = %s",orderId));
 
 			// TODO: Create a new shipment record. -----------------------------DONT UNDERSTAND THIS at all someone help
-			//stmt.executeUpdate("INSERT INTO shipment")--
+			//stmt.executeUpdate("INSERT INTO shipment VALUES ()")--
 
 			// TODO: For each item verify sufficient quantity available in warehouse 1.
 			boolean validOrder = true;

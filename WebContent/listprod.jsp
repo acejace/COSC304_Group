@@ -63,8 +63,8 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 				"</td></tr>");
 		}else{
 			if (productName.toLowerCase().contains(name.toLowerCase())){
-			 	out.println(String.format("<tr><td><a href='%s'>Click to add to cart</a></td><td>",link)+
-					productName+
+				out.println(String.format("<tr><td><a href='%s'>Click to add to cart</a></td><td>",link)+
+					String.format("<a href='product.jsp?id=%s'>",productId)+productName+"</a>"+
 					"</td><td>"+
 					productPrice+
 					"</td></tr>");
