@@ -1,4 +1,6 @@
-<%@ page trimDirectiveWhitespaces="true" import="java.sql.*,java.io.*" %><%@ include file="jdbc.jsp" %><%
+<%@ page trimDirectiveWhitespaces="true" import="java.sql.*,java.io.*" %>
+<%@ include file="jdbc.jsp" %>
+<%
 
 // Indicate that we are sending a JPG picture
 response.setContentType("image/jpeg");  

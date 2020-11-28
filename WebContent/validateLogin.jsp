@@ -23,6 +23,7 @@
 	{
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		username = username.toLowerCase();
 		String retStr = null;
 
 		if(username == null || password == null)
@@ -41,6 +42,7 @@
 
 			while (rst.next()) {
 				String userId = rst.getString(1);
+				userId = userId.toLowerCase();
 				String pass = rst.getString(2);
 
 				if (username.equals(userId) && password.equals(pass)) {
