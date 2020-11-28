@@ -41,8 +41,8 @@
 			// TODO: Retrieve all items in order with given id
 			ResultSet rst = stmt.executeQuery(String.format("SELECT productId, quantity FROM orderproduct WHERE orderId = %s",orderId));
 
-			// TODO: Create a new shipment record. -----------------------------DONT UNDERSTAND THIS at all someone help
-			//stmt.executeUpdate("INSERT INTO shipment VALUES ()")--
+			// TODO: Create a new shipment record. -----------------------------
+			//stmt.executeUpdate("INSERT INTO shipment(shipmentId) VALUES (1)") // where do i get the value for shipmentId ?
 
 			// TODO: For each item verify sufficient quantity available in warehouse 1.
 			boolean validOrder = true;
