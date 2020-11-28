@@ -55,7 +55,7 @@ try
         
         // TODO: Add links to Add to Cart and Continue Shopping
         out.println("<h2> <a href=listprod.jsp?productName=''>Continue Shopping</a></h2>");
-        out.println(String.format("<tr><td><a href='%s'>Click to add to cart</a></td><td>",link)+
+        out.println(String.format("<tr><td><h2><a href='%s'>Click to add to cart</a></h2></td><td>",link)+
             "</td></tr>");
         
     }
