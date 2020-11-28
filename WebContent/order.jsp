@@ -58,7 +58,6 @@ if (custId == null || custId.equals("")) {
 }
 
 String sql = "SELECT customerId, firstName+ ' ' +lastName From Customer WHERE customerId = ?";
-
 NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
 try
@@ -149,6 +148,8 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);)
 	out.println("<h1>Order completed. Will be shipped soon</h1>");
 	out.println("<h1>Your order reference number is: " + orderId + "</h1>");
 	out.println("<h1>Shipping to customer: " + custId + " Name: " + custName +"</h1>");
+	String link = String.format("ship.jsp?id=%d",orderId);
+	out.println(String.format("<h2><a href='%s'>Shipment details</a></h2>",link));
 	out.println("<h2><a href = \"shop.html\">Return to shopping</a></h2>");
 
 	session.setAttribute("productList", null);
