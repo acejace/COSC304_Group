@@ -53,8 +53,11 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 	while (rst.next()){
 		String productId = rst.getString(1);
 		String productName = rst.getString(2);
-		double productPrice = rst.getDouble(3);
-		String link = String.format("addcart.jsp?id=%s&name=%s&price=%s",productId,productName,productPrice);
+		NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
+		String productPrice = (currFormat.format(rst.getDouble(3)));
+		double numPrice = rst.getDouble(3);
+
+		String link = String.format("addcart.jsp?id=%s&name=%s&price=%f",productId,rst.getString(2).replaceAll("'","%27"),numPrice);
 		if (name==null || name.isEmpty()){
 			out.println(String.format("<tr><td><a href='%s'>Click to add to cart</a></td><td>",link)+
 				String.format("<a href='product.jsp?id=%s'>",productId)+productName+"</a>"+

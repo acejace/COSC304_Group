@@ -2,6 +2,7 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <%@ include file="jdbc.jsp" %>
+<%@ page import="java.util.Locale" %>
 
 <html>
 <head>
@@ -16,14 +17,10 @@
 // Get product name to search for
 // TODO: Retrieve and display info for the product
 int productId = Integer.parseInt(request.getParameter("id"));
-
 String sql = "SELECT productName, productPrice, productImageURL FROM product where productId=?";
-
-
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";	
-
 try
 {	// Load driver class
 	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -32,7 +29,6 @@ catch (java.lang.ClassNotFoundException e)
 {
 	out.println("ClassNotFoundException: " +e);
 }
-
 try 
 {
     getConnection();
@@ -43,13 +39,14 @@ try
         out.println("<h1>Invalid product ID</h1>");
     else{
         String productName = rst.getString(1);
-        int productPrice = rst.getInt(2);
         String productImage = rst.getString(3);
-
+        NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
+        String productPrice = (currFormat.format(rst.getDouble(2)));
+        double numPrice = rst.getDouble(2);
+        String link =  String.format("addcart.jsp?id=%s&name=%s&price=%f",productId,rst.getString(1).replaceAll("'","%27"),numPrice);
         out.println("<h1>" + productName + "</h1>");
         
         // TODO: If there is a productImageURL, display using IMG tag
-
         if(productImage != null)
             out.println(String.format("<img src=displayImage.jsp?id=%s alt='image of product'>", productId)); 
             
@@ -58,19 +55,16 @@ try
         
         // TODO: Add links to Add to Cart and Continue Shopping
         out.println("<h2> <a href=listprod.jsp?productName=''>Continue Shopping</a></h2>");
-        out.println(String.format("<h2> <a href=addcart.jsp?name=%s&id=%s&price=%s>Add to Cart</a></h2>",productName, productId, productPrice));
+        out.println(String.format("<tr><td><a href='%s'>Click to add to cart</a></td><td>",link)+
+            "</td></tr>");
+        
     }
 } catch (SQLException ex) 
 { 	out.println(ex); 
 }
-
-
 		
-
 		
-
 %>
 
 </body>
 </html>
-
