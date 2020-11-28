@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>YOUR NAME Grocery Order Processing</title>
+<title>Jace's Grocery Order Processing</title>
 <style>
 	table {
 	  font-family: arial, sans-serif;
@@ -43,7 +43,10 @@ if (custId == null || custId.equals("")) {
 	out.println("<h1>Invalid Customer Id</h1>");
 }else if (productList == null) {
 	out.println("<h1>Your Shopping Cart Is Empty</h1>");
+	
 }else{
+	out.println(custId);
+
 	// check if customer id is a number
 	int num = -1;
 	try {
