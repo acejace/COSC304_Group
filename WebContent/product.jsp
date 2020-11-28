@@ -33,9 +33,10 @@ catch (java.lang.ClassNotFoundException e)
 	out.println("ClassNotFoundException: " +e);
 }
 
-try (Connection con = DriverManager.getConnection(url, uid, pw);
-PreparedStatement pstmt = con.prepareStatement(sql);)
+try 
 {
+    getConnection();
+    PreparedStatement pstmt = con.prepareStatement(sql);
     pstmt.setInt(1, productId);
     ResultSet rst = pstmt.executeQuery();
     if(!rst.next())
@@ -46,16 +47,20 @@ PreparedStatement pstmt = con.prepareStatement(sql);)
         String productImage = rst.getString(3);
 
         out.println("<h1>" + productName + "</h1>");
+        
         // TODO: If there is a productImageURL, display using IMG tag
+
         if(productImage != null)
-        // TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as parameter.
-        out.println(String.format("<img src=displayImage.jsp?id=%s alt='image of product'>", productId)); 
+            out.println(String.format("<img src=displayImage.jsp?id=%s alt='image of product'>", productId)); 
+            
         out.println("<p> <b>id:</b> " + productId + "</p> ");
         out.println("<p> <b>price:</b>" + productPrice + "</p>");
         // TODO: Add links to Add to Cart and Continue Shopping
         out.println("<h2> <a href=listprod.jsp?productName=''>Continue Shopping</a></h2>");
         out.println(String.format("<h2> <a href=addcart.jsp?name=%s&id=%s&price=%s>Add to Cart</a></h2>",productName, productId, productPrice));
     }
+} catch (SQLException ex) 
+{ 	out.println(ex); 
 }
 
 

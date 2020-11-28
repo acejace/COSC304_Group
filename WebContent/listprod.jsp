@@ -57,7 +57,7 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
 		String link = String.format("addcart.jsp?id=%s&name=%s&price=%s",productId,productName,productPrice);
 		if (name==null || name.isEmpty()){
 			out.println(String.format("<tr><td><a href='%s'>Click to add to cart</a></td><td>",link)+
-				productName+
+				String.format("<a href='product.jsp?id=%s'>",productId)+productName+"</a>"+
 				"</td><td>"+
 				productPrice+
 				"</td></tr>");
