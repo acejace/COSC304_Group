@@ -6,6 +6,8 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.Date" %>
 <%@ include file="jdbc.jsp" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.LocalDateTime"%>
 
 <html>
 <head>
@@ -15,76 +17,83 @@
         
 <%@ include file="header.jsp" %>
 
+
 <%
 	// TODO: Get order id
-	String orderId = request.getParameter("orderId");
-
+	Integer orderId = Integer.parseInt(request.getParameter("id"));
 	String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 	String uid = "SA";
 	String pw = "YourStrong@Passw0rd";		
-
 	try{
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 	}catch (java.lang.ClassNotFoundException e){
 		out.println("ClassNotFoundException: " +e);
 	}
 	String sql = "";
-
 	try ( Connection con = DriverManager.getConnection(url, uid, pw);
-      Statement stmt = con.createStatement();){
+	  Statement stmt = con.createStatement();
+	  Statement stmt2 = con.createStatement();){
+		
 		// TODO: Check if valid order id
 		if(orderId == null){
 			out.println("<h1>invalid Id</h1>");
 		}else {
 			// TODO: Start a transaction (turn-off auto-commit)
 			con.setAutoCommit(false);
+			
 			// TODO: Retrieve all items in order with given id
-			ResultSet rst = stmt.executeQuery(String.format("SELECT productId, quantity FROM orderproduct WHERE orderId = %s",orderId));
-
+			ResultSet rst = stmt.executeQuery(String.format("SELECT productId, quantity FROM orderproduct WHERE orderId = %d",orderId));
+			
 			// TODO: Create a new shipment record. -----------------------------
-			//stmt.executeUpdate("INSERT INTO shipment(shipmentId) VALUES (1)") // where do i get the value for shipmentId ?
+			LocalDateTime currenttime = LocalDateTime.now(); 
+			DateTimeFormatter sdtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+			
+			PreparedStatement pstmt = con.prepareStatement(String.format("INSERT shipment (shipmentDate, shipmentDesc) VALUES (?,'')"));
+			pstmt.setString(1, sdtf.format(currenttime));
+			pstmt.executeUpdate();
 
 			// TODO: For each item verify sufficient quantity available in warehouse 1.
 			boolean validOrder = true;
+			int warehouseQuant = 0;
 			while(rst.next()){
-				String productId = rst.getString(1);
+				int productId = rst.getInt(1);
 				int orderQuant = rst.getInt(2);
-				String sql2 = String.format("SELECT quantity FROM productinventory WHERE productId =%s", productId);
-				ResultSet rst2 = stmt.executeQuery(sql2);
-				int warehouseQuant = rst.getInt(1);
+				
+				String sql2 = String.format("SELECT quantity FROM productinventory WHERE productId = ?");
+				PreparedStatement pstmt2 = con.prepareStatement(sql2);
+				pstmt2.setInt(1, productId);  
+				ResultSet rst2 = pstmt2.executeQuery();
+				
+				while(rst2.next()){
+				warehouseQuant = rst2.getInt(1);}
+
 				// TODO: If any item does not have sufficient inventory, cancel transaction and rollback. Otherwise, update inventory for each item.
 				int newQuant = warehouseQuant - orderQuant;
-				out.println(String.format("<h2>Ordered product: %s Qty: %s Previous inventory: %s New inventory: %s", productId, orderQuant, warehouseQuant, newQuant));
-				if(newQuant >= 0){
-					out.println(String.format("<h1>Shipment not done. Insufficient inventory for product id: %s </h1>",productId));
+				if(newQuant < 0){
+					out.println(String.format("<h1>Shipment not done. Insufficient inventory for product id: %d </h1>",productId));
 					con.rollback();
 					validOrder = false;
 					break;
-				}else
-					stmt.executeUpdate("UPDATE productinventory SET quantity = %s WHERE productId = %s", newQuant, productId);
-
+				}else{
+					out.println(String.format("<h2>Ordered product: %s Qty: %s Previous inventory: %d New inventory: %d", productId, orderQuant, warehouseQuant, newQuant));
+					
+					String sql3 = String.format("UPDATE productinventory SET quantity = %d WHERE productId = %d", newQuant, productId);
+					PreparedStatement pstmt3 = con.prepareStatement(sql3);
+					pstmt3.executeUpdate();
+				}
 			}
+
 			if(validOrder){
 				con.commit();
 				out.println("<h1>Shipment successfully processed.</h1>");
 			}
-			out.println("<h2><a href=index.jsp>Back to Main Page</a></h2>")
+			out.println("<h2><a href=index.jsp>Back to Main Page</a></h2>");
+
 			// TODO: Auto-commit should be turned back on
 			con.setAutoCommit(true);
-
-
 		}
-
 }
-	
-	
-	
-	
-	
-	
 %>                       				
-
-<h2><a href="shop.html">Back to Main Page</a></h2>
 
 </body>
 </html>
