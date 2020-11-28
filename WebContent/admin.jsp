@@ -32,7 +32,7 @@
 
 try {
 // TODO: Write SQL query that prints out total order amount by day
-    String sql = "SELECT CAST(orderDate AS DATE) as Date, SUM(totalAmount) FROM ordersummary GROUP BY CAST(orderDate AS DATE)";
+    String sql = " SELECT DATEADD(dd, 0, DATEDIFF(dd, 0, orderDate)), SUM(totalAmount) FROM ordersummary GROUP BY DATEADD(dd, 0, DATEDIFF(dd, 0, orderDate))";
     getConnection();
     Statement stmt = con.createStatement();
     ResultSet rst = stmt.executeQuery(sql);
