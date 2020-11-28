@@ -55,6 +55,7 @@ try
             
         out.println("<p> <b>id:</b> " + productId + "</p> ");
         out.println("<p> <b>price:</b>" + productPrice + "</p>");
+        
         // TODO: Add links to Add to Cart and Continue Shopping
         out.println("<h2> <a href=listprod.jsp?productName=''>Continue Shopping</a></h2>");
         out.println(String.format("<h2> <a href=addcart.jsp?name=%s&id=%s&price=%s>Add to Cart</a></h2>",productName, productId, productPrice));
