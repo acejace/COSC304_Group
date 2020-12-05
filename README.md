@@ -1,65 +1,68 @@
-# COSC 304 - Introduction to Database Systems<br>Lab 8: Images, Security, and Transactions
+# COSC 304 - Introduction to Database Systems<br>Lab 9: XML, JSON, Views, and Triggers
 
-Modify your existing project web site from lab 7 with new features including a product detail page, a login feature, an administrator page, and support for transactions.
+## Question 1 - XPath (3 marks)
 
-## Project Requirements (25 marks)
+Write XPath expressions for the following queries. Use the Depts XML data set and the online [XPath query tool](https://cosc304.ok.ubc.ca/rlawrenc/tomcat/xml/xmlquery.html).
 
-1. [Sample web site](http://cosc304.ok.ubc.ca/rlawrenc/tomcat/lab8/index.jsp)
+1. Write an XPath expression that returns all departments with a budget less than $400,000. Output:
 
-2. Start with the setup for lab 7 for either [Java](https://github.com/rlawrenc/cosc_304/blob/master/labs/lab7/java/assign/setup), [PHP](https://github.com/rlawrenc/cosc_304/blob/master/labs/lab7/php/assign/setup), or [Node.js](https://github.com/rlawrenc/cosc_304/blob/master/labs/lab7/nodejs/assign/setup). **If you have an existing Docker container for lab 7, you do not need to download and setup lab 7 again.**
+```
+<Dept dno="D2" mgr="E7">
+   <name>Consulting</name>
+   <Emp eno="E6">
+      <name>L. Chu</name>
+   </Emp>
+   <Emp eno="E3">
+      <name>A. Lee</name>
+   </Emp>
+   <budget>350000</budget>
+</Dept>
+```
 
-3. Download starter code for [Java](304_lab8_java.zip), [PHP](304_lab8_php.zip), or [Node.js](304_lab8_node_starter.zip). These code files should be **ADDED** to your existing lab 7 project. Note that `orderdb_sql.ddl` has been modified to include new SQL statements at the end. There is a new main page (`index.jsp/php`), an administrator page (`admin.jsp/php`), and images in the `img` folder. The four new code files to change: `validateLogin.jsp/php`, `product.jsp/php`, `admin.jsp/php`, and `ship.jsp/php`.
+2. Write an XPath expression that returns all employees in the Management department that have a name greater than 'K'. Output:
 
-4. Your output does not have to look exactly like the sample (feel free to make it look better!).
+```
+<Emp eno="E7">
+   <name>R. Davis</name>
+</Emp>
+```
 
-The product page will show details on the product including images. An image can be retrieved from a local folder using a URL or stored as a binary object in the database.
+3. Write an XPath expression that returns the employee number of the 2nd employee in the Consulting department. Note: To return an attribute use `data()` such as `data(//Dept/@dno)`. Output:
 
-#### Marking Guide (product page): (10 marks)
+```
+E3
+```
 
-- **+1 mark** - for modifying product listing page to go to product detail page when click on product name
-- **+3 marks** - for using PreparedStatement to retrieve and display product information by id
-- **+2 marks** - for displaying an image using an HTML `img` tag based on `productImageURL` field
-- **+3 marks** - for displaying an image from the binary field `productImage` by providing an `img` tag and modifying the `displayImage.jsp/php` file.
-- **+1 mark** - for adding link to "add to cart" and to "continue shopping"
+## Question 2 - Views (4 marks)
 
-#### Screenshot
+1. Write a CREATE VIEW statement for the workson database called `deptSummary` that has the department number, name, count of employees in the department, and total employee salaries. View contents:
 
-<img src="img/productPage.png" width="300">
+---------------------------------------------
+| dno | dname      | totalEmp | totalSalary |
+| --- | ---------- | -------- | ----------- |
+| D1  | Management | 2        | 90000.00    |
+| D2  | Consulting | 2        | 70000.00    |
+| D3  | Accounting | 3        | 120000.00   |
+---------------------------------------------
 
-#### Marking Guide (admin and login page): (5 marks)
+2. Write a CREATE VIEW statement for workson database called `empSummary` that has the employee number, name, salary, birthdate, department, count of projects worked on for the employee and the total hours worked. Only show employees in `'D1', 'D2', or 'D3'` and with birthdate after `'1966-06-08'`.View contents:
 
-- **+1 mark** - for checking user is logged in before accessing page
-- **+2 marks** - for displaying a report that list the total sales for each day. Hint: May need to use date functions like `year`, `month`, `day`.
-- **+1 mark** - for displaying current user on main page (`index.jsp/php`)
-- **+2 marks** - for modifying `validateLogin` to check correct user id and password
+-------------------------------------------------------------------------
+| eno | ename    | salary   | bdate      | dno | totalProj | totalHours |
+| --- | -------- | -------- | ---------- | --- | --------- | ---------- |
+| E3  | A. Lee   | 40000.00 | 1966-07-05 | D2  | 2         | 58         |
+| E5  | B. Casey | 50000.00 | 1971-12-25 | D3  | 1         | 24         |
+| E7  | R. Davis | 40000.00 | 1977-09-08 | D1  | 1         | 36         |
+| E8  | J. Jones | 50000.00 | 1972-10-11 | D1  | 0         | <null>     |
+-------------------------------------------------------------------------
 
-#### Screenshot
+## Question 3 - Triggers (6 marks)
 
-<img src="img/adminPage.png" width="300">
+1. Write a trigger on MySQL with the workson data set (testing in your own database) that increases the budget of a project whenever a record is inserted in `workson` table. Increase the budget by `$1,000` times the number of hours worked.
 
-#### Marking Guide (customer page): (5 marks)
+2. Write a trigger on MySQL with the workson data set (testing in your own database) that sets the salary of a new employee to be `$5,000` more than the average salary of employees with that title whenever an employee is inserted with a salary less than `$50,000`. For example, if employee `'E10'` called `'P. Person'` with title `'ME'` is inserted with a salary of `$35,000`, then the salary should be changed to `$45,000` (average salary of `'ME'` employees is `$40,000`).
 
-- **+1 mark** - for displaying error message if attempt to access page and not logged in
-- **+4 marks** - for retrieving customer information by id and displaying it
 
-#### Screenshot
+## Question 4 - JSON (2 marks)
 
-<img src="img/customerPage.png" width="300">
-
-#### Marking Guide (shipment page): (5 marks)
-
-Use transactions to take an order id and either process a shipment and ship all items or generate an error.
-
-- **+1 mark** - verifying order id exists and is associated with a valid order with items
-- **+1 mark** - for checking if sufficient inventory from warehouse 1 for each item in order
-- **+1 mark** - for inserting a new shipment record
-- **+1 mark** - for updating inventory for each item in shipment
-- **+1 mark** - for commit of updates if all items had sufficient inventory or performing rollback if any items did not have enough inventory
-
-#### Screenshot - Test with OrderId = 1
-
-<img src="img/shipOrder1.png" width="300">
-
-#### Screenshot - Test with OrderId = 3
-
-<img src="img/shipOrder3.png" width="300">
+1. Create a single, valid JSON document that stores the information of the `dept` and `proj` tables in the workson database.
