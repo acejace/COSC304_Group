@@ -82,6 +82,13 @@ table.orderDetails tr td{
     position: relative;
     text-align: left;
 }
+
+table.customerDetails tr th{
+    text-align: right;
+}
+table.customerDetails tr td{
+    text-align: left;
+}
 tr th{
     color:white;
     font-weight: bold;
