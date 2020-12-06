@@ -1,5 +1,5 @@
 body {
-    background: url("img/home-background.jpg");
+    background: url("../img/home-background.jpg");
     background-color:black;
   }
   html,body { height:100%; }
