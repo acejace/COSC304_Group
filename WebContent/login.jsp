@@ -31,6 +31,12 @@ if (session.getAttribute("loginMessage") != null)
 <input class="submit" type="submit" name="Submit2" value="Log In">
 </form>
 
+<form name="createAcc" method=post action="createuser.jsp">
+<table style="display:inline">
+<input class="submit" type="submit" name="Submit3" value="Create Account">
+</table>
+</form>
+
 </div>
 
 </body>
