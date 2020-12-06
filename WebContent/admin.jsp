@@ -24,7 +24,7 @@
 				<li class="header"><a href="index.jsp" style="color:white">Home</a></li>
 				<li class="header">
 						<%
-						if (loggedIn) out.println("<a href='logout.jsp' style='color:white'>LogOut</a>");
+						if (loggedIn) out.println("<a href='editaccount.jsp' style='color:white'>My Account</a><a href='logout.jsp' style='color:white'>LogOut</a>");
 						else{
 								out.println("Not currently logged in.");
 						}

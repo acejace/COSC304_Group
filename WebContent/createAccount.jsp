@@ -56,11 +56,7 @@ if(firstName == null || firstName.equals("")) {
     try {
         getConnection();
         con = DriverManager.getConnection(url, uid, pw);
-        /**
-        String sql1 = "SET IDENTITY_INSERT customer ON";
-        PreparedStatement pstmt1 = con.prepareStatement(sql1);
-        pstmt1.executeUpdate();
-        **/
+        
 		String sql = "INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country,userid, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pstmt = con.prepareStatement(sql);
         //pstmt.setInt(1, 15);            // cust id
