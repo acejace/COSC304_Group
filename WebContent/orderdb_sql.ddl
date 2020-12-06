@@ -154,26 +154,16 @@ INSERT product(productName, categoryId, productDesc, productPrice, productImageU
 INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('ASUS RTX 3080 TUF','1','Graphics Card','929.99','img/9.jpg');
 INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('ASUS RTX 3080 ROG STRIX','1','Graphics Card','929.99','img/10.jpg');
 INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('Nvidia RTX 3090','1','Graphics Card','1999.99','img/11.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('EVGA GTX 1080','1','Graphics Card','199.99','img/12.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('ASUS GTX 1080','1','Graphics Card','219.99','img/13.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('NVIDIA GTX 1080 Founders Edition','1','Graphics Card','189.99','img/14.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('MSI GTX 1080 Ti Gaming X Trio','1','Graphics Card','229.99','img/15.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('ZOTAC RTX 3070','1','Graphics Card','599.99','img/16.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('Nvidia RTX 3070','1','Graphics Card','579.99','img/17.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('Nvidia RTX 3080','1','Graphics Card','899.99','img/18.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('ZOTAC RTX 3080','1','Graphics Card','899.99','img/19.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('ASUS RTX 3080 TUF','1','Graphics Card','929.99','img/20.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('ASUS RTX 3080 ROG STRIX','1','Graphics Card','929.99','img/21.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('AMD RYZEN 5 3600','2','Processor','299.99','img/22.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('AMD RYZEN 5 5600X','2','Processor','349.99','img/23.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('AMD RYZEN 7 3700x','2','Processor','449.99','img/24.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('AMD RYZEN 7 5800x','2','Processor','549.99','img/25.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('TridentZ RGB 16GB','3','RAM','129.99','img/26.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('CORSAIR Vengence RGB PRO 16GB','3','RAM','169.99','img/27.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('CORSAIR Vengence RGB PRO 128GB','3','RAM','822.99','img/28.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('NZXT Kraken x63 240MM','4','AIO Cpu cooling system','159.99','img/29.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('Corsair iCUE H510i 240MM','4','AIO Cpu cooling system 2','239.99','img/30.jpg');
-INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('CoolerMaster MasterLiquid 120MM','4','AIO Cpu cooling system','89.99','img/31.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('AMD RYZEN 5 3600','2','Processor','299.99','img/12.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('AMD RYZEN 5 5600X','2','Processor','349.99','img/13.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('AMD RYZEN 7 3700x','2','Processor','449.99','img/14.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('AMD RYZEN 7 5800x','2','Processor','549.99','img/15.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('TridentZ RGB 16GB','3','RAM','129.99','img/16.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('CORSAIR Vengence RGB PRO 16GB','3','RAM','169.99','img/17.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('CORSAIR Vengence RGB PRO 128GB','3','RAM','822.99','img/18.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('NZXT Kraken x63 240MM','4','AIO Cpu cooling system','159.99','img/19.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('Corsair iCUE H510i 240MM','4','AIO Cpu cooling system 2','239.99','img/20.jpg');
+INSERT product(productName, categoryId, productDesc, productPrice, productImageURL) VALUES ('CoolerMaster MasterLiquid 120mm','4','AIO Cpu cooling system','89.99','img/21.jpg');
 
 INSERT INTO warehouse(warehouseName) VALUES ('Main warehouse');
 INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (1, 1, 5, 18);
@@ -230,5 +220,3 @@ INSERT INTO orderproduct (orderId, productId, quantity, price) VALUES (@orderId,
 INSERT INTO orderproduct (orderId, productId, quantity, price) VALUES (@orderId, 20, 3, 10);
 
 -- New SQL DDL for lab 8
-
-UPDATE Product SET productImageURL = 'img/5.jpg' WHERE ProductId = 5;
