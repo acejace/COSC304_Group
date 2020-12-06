@@ -1,0 +1,62 @@
+body {
+    background: url("img/home-background.jpg");
+    background-color:black;
+  }
+  html,body { height:100%; }
+.header{
+    background: rgba(0, 0, 0, 0.8);
+    color: #f1f1f1;
+    text-align: left;
+    font-size: 0.7vw;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    position: relative;
+}
+
+h1.main {
+    color:white;
+    font-weight: bold;
+    font-size: 5vw;
+    position: relative;
+    text-align: center;
+  }
+
+p.main{
+    color:white;
+    font-weight: bold;
+    font-size: 2vw;
+    position: relative;
+    text-align: center;
+}
+
+div.main{
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    border-radius: 25px;
+} 
+ul.nav{
+    list-style-type: none;
+    margin: 0;
+    padding-top: 5%;
+    font-size: 1vw;
+    width: 100%;
+}
+
+li.nav{
+    display: inline-block;
+    text-align: center;
+    width: 24%;
+}
+
+a{
+    color: white;
+    size: 10;
+}
