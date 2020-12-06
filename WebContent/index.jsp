@@ -2,26 +2,36 @@
 <%@ include file="jdbc.jsp" %>
 <html>
 <head>
-        <link rel="stylesheet" href="homeStyle.css">
-        <title>PcSolutions</title>
+        <link rel="stylesheet" href="css/homeStyle.css">
+        <title>Proper Tech</title>
 </head>
 <body>
-        <div class="background">
-                <h1 align="center">PcSolutions</h1>
+        <div class="header">
+                
+                <a href="login.jsp" style="color:white">Login</a> OR
+                <a href="login.jsp" style="color:white">Register</a><!-- Change to register-->
+                <span style="float:right;"> 
+                <a href="logout.jsp" style="color:white">LogOut</a></span> 
+        
+        </div>
+        <div>
+                <h1 class="main">Proper Tech</h1>
+                <p class="main"> The right solution for your gaming needs</p>
         </div>
 
+<div class="main">
 
-<h2 align="center"><a href="login.jsp">Login</a></h2>
+        <ul class="nav" > 
+                <li class="nav"><a href="listprod.jsp">Begin Shopping</a></li>
 
-<h2 align="center"><a href="listprod.jsp">Begin Shopping</a></h2>
+                <li class="nav"><a href="listorder.jsp">List All Orders</a></li>
 
-<h2 align="center"><a href="listorder.jsp">List All Orders</a></h2>
+                <li class="nav"><a href="customer.jsp">Customer Info</a></li>
 
-<h2 align="center"><a href="customer.jsp">Customer Info</a></h2>
+                <li class="nav"><a href="admin.jsp">Administrators</a></li>
+        </ul>
 
-<h2 align="center"><a href="admin.jsp">Administrators</a></h2>
-
-<h2 align="center"><a href="logout.jsp">Log out</a></h2>
+</div>
 
 <%
 // TODO: Display user name that is logged in (or nothing if not logged in)
