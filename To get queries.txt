@@ -1,0 +1,124 @@
+EVGA GTX 1080
+1
+Graphics Card
+199.99
+ASUS GTX 1080
+1
+Graphics Card
+219.99
+NVIDIA GTX 1080 Founders Edition
+1
+Graphics Card
+189.99
+MSI GTX 1080 Ti Gaming X Trio
+1
+Graphics Card
+229.99
+ZOTAC RTX 3070
+1
+Graphics Card
+599.99
+Nvidia RTX 3070
+1
+Graphics Card
+579.99
+Nvidia RTX 3080
+1
+Graphics Card
+899.99
+ZOTAC RTX 3080
+1
+Graphics Card
+899.99
+ASUS RTX 3080 TUF
+1
+Graphics Card
+929.99
+ASUS RTX 3080 ROG STRIX
+1
+Graphics Card
+929.99
+Nvidia RTX 3090
+1
+Graphics Card
+1999.99
+EVGA GTX 1080
+1
+Graphics Card
+199.99
+ASUS GTX 1080
+1
+Graphics Card
+219.99
+NVIDIA GTX 1080 Founders Edition
+1
+Graphics Card
+189.99
+MSI GTX 1080 Ti Gaming X Trio
+1
+Graphics Card
+229.99
+ZOTAC RTX 3070
+1
+Graphics Card
+599.99
+Nvidia RTX 3070
+1
+Graphics Card
+579.99
+Nvidia RTX 3080
+1
+Graphics Card
+899.99
+ZOTAC RTX 3080
+1
+Graphics Card
+899.99
+ASUS RTX 3080 TUF
+1
+Graphics Card
+929.99
+ASUS RTX 3080 ROG STRIX
+1
+Graphics Card
+929.99
+AMD RYZEN 5 3600
+2
+Processor
+299.99
+AMD RYZEN 5 5600X
+2
+Processor
+349.99
+AMD RYZEN 7 3700x
+2
+Processor
+449.99
+AMD RYZEN 7 5800x
+2
+Processor
+549.99
+TridentZ RGB 16GB
+3
+RAM
+129.99
+CORSAIR Vengence RGB PRO 16GB
+3
+RAM
+169.99
+CORSAIR Vengence RGB PRO 128GB
+3
+RAM
+822.99
+NZXT Kraken x63 240MM
+4
+AIO Cpu cooling system
+159.99
+Corsair iCUE H510i 240MM
+4
+AIO Cpu cooling system 2
+239.99
+CoolerMaster MasterLiquid 120mm
+4
+AIO Cpu cooling system
+89.99
