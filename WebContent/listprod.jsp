@@ -5,14 +5,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ethan Grocery</title>
+<title>Products</title>
+<link rel="stylesheet" href="css/homeStyle.css">
 </head>
 <body>
-
-<h1>Search for the products you want to buy:</h1>
-
+	<div class="header">
+		<ul class="header"> 
+				<li class="header"><a href="login.jsp" style="color:white">Login</a> OR <a href="login.jsp" style="color:white">Register</a></li>
+				<li class="header"><a href="index.jsp" style="color:white">Home</a></li>
+				<li class="header"><a href="logout.jsp" style="color:white">LogOut</a></li>
+		</ul>
+</div>
+<h1 class="main">Products</h1>
+<div class="main" >
+	<br>
+<h2 class='products' style="font-size: 2vw;"> Search for your product: </h2>
 <form method="get" action="listprod.jsp">
-<input id="search" type="text" name="productName" size="50" >
+<input id="search" class='search' type="text" name="productName" size="50" >
 <input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
 </form>
 
@@ -21,9 +30,9 @@
 String name = request.getParameter("productName");
 
 if (name == null || name.isEmpty()) {
-	out.print(String.format("<h1>All Products</h1>"));
+	out.print(String.format("<h2 class='products'>Currently Displaying All Products</h2>"));
 }else {
-	out.print(String.format("<h1>Products containing '%s'</h1>",name));
+	out.print(String.format("<h2 class='products'>Products containing '%s'</h3>",name));
 }
 
 
@@ -49,7 +58,7 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);
       PreparedStatement pstmt = con.prepareStatement("SELECT productId,productName,productPrice FROM product");) 
 {		
 	ResultSet rst = pstmt.executeQuery();		
-	out.println("<table id='myTable'><tr><th>Add to cart</th><th>Product Name</th><th>Price</th></tr>");
+	out.println("<table id='myTable' class='products'><tr><th>Add to cart</th><th>Product Name</th><th>Price</th></tr>");
 	while (rst.next()){
 		String productId = rst.getString(1);
 		String productName = rst.getString(2);
@@ -82,6 +91,6 @@ catch (SQLException ex)
 { 	out.println(ex); 
 }
 %>
-
+</div>
 </body>
 </html>

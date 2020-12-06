@@ -7,13 +7,13 @@
 </head>
 <body>
         <div class="header">
-                
-                <a href="login.jsp" style="color:white">Login</a> OR
-                <a href="login.jsp" style="color:white">Register</a><!-- Change to register-->
-                <span style="float:right;"> 
-                <a href="logout.jsp" style="color:white">LogOut</a></span> 
-        
+                <ul class="header"> 
+                        <li class="header"><a href="login.jsp" style="color:white">Login</a> OR <a href="login.jsp" style="color:white">Register</a></li>
+                        <li class="header"><a href="index.jsp" style="color:white">Home</a></li>
+                        <li class="header"><a href="logout.jsp" style="color:white">LogOut</a></li>
+                </ul>
         </div>
+        
         <div>
                 <h1 class="main">Proper Tech</h1>
                 <p class="main"> The right solution for your gaming needs</p>
