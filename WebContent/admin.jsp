@@ -51,7 +51,7 @@ try {
     getConnection();
     Statement stmt = con.createStatement();
     ResultSet rst = stmt.executeQuery(sql);
-    out.println("<h2>Administrator Sales Report by Day</h2>");
+    out.println("<h2 style='color:white;'>Administrator Sales Report by Day</h2>");
     out.println("<table>");
         out.println("<table><tr><th>Order Date</th><th>Total Order Amount</th></tr>");
 			while (rst.next()) {
@@ -61,6 +61,20 @@ try {
                 out.println("<tr><td>" + orderDate + "</td><td>" + totalAmount + "</td></tr>");
             }
     out.println("</table>");
+
+	// List All Customers 
+	sql = "SELECT firstName, lastName FROM customer";
+	rst = stmt.executeQuery(sql);
+	out.println("<h2 style='color:white;'>Customers</h2>");
+    out.println("<table>");
+	out.println("<table><tr><th>First Name</th><th>Last Name</th></tr>");
+	while(rst.next()) {
+		String firstname = rst.getString(1);
+		String lastname = rst.getString(2);
+		out.println("<tr><td>" + firstname + "</td><td>" + lastname + "</td></tr>");
+	}
+
+	out.println("</table>");
 
 }
 catch (SQLException ex) {

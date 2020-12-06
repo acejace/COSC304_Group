@@ -29,6 +29,10 @@ if (session.getAttribute("createMessage") != null)
 	<td><input type="text" name="lastName"  size=10 maxlength=10></td>
 </tr>
 <tr>
+	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Email:</font></div></td>
+	<td><input type="text" name="email"  size=10 maxlength=10></td>
+</tr>
+<tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Phone Number:</font></div></td>
 	<td><input type="text" name="phonenum"  size=11 maxlength=11></td>
 </tr>
