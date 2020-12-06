@@ -11,6 +11,12 @@
 
 <h1>Create Account</h1>
 
+<%
+// Print prior error login message if present
+if (session.getAttribute("createMessage") != null)
+	out.println("<p>"+session.getAttribute("createMessage").toString()+"</p>");
+%>
+
 <form name="MyForm" method=post action="createAccount.jsp">
 <table style="display:inline">
 
@@ -40,7 +46,7 @@
 </tr>
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">PostalCode:</font></div></td>
-	<td><input type="text" name="postalCode"  size=10 maxlength=10></td>
+	<td><input type="text" name="postalcode"  size=10 maxlength=10></td>
 </tr>
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Country:</font></div></td>
