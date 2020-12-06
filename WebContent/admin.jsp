@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Administrator Page</title>
-<style>
-	table {
-	  font-family: arial, sans-serif;
-	  border-collapse: collapse;
-	  width: 100%;
-	}
-	
-	td, th {
-	  border: 1px solid #dddddd;
-	  text-align: left;
-	  padding: 8px;
-	}
 
-</style>
+	<head>
+		<link rel="stylesheet" href="css/homeStyle.css">
+		<title>Proper Tech</title>
+
 </head>
 <body>
-
+	<div class="header">
+		<ul class="header"> 
+				<li class="header"><a href="login.jsp" style="color:white">Login</a> OR <a href="login.jsp" style="color:white">Register</a></li>
+				<li class="header"><a href="index.jsp" style="color:white">Home</a></li>
+				<li class="header"><a href="logout.jsp" style="color:white">LogOut</a></li>
+		</ul>
+	</div>
+	<h1 class="main">Administrator Page</h1>
+	<div class="main">
 <%@ include file="jdbc.jsp" %>
 <%@ include file="auth.jsp" %>
 <%@ page language="java" import="java.io.*,java.sql.*"%>
@@ -56,7 +53,7 @@ finally {
 }
 
 %>
-
+</div>
 </body>
 </html>
 
