@@ -2,10 +2,14 @@
 <%@ include file="jdbc.jsp" %>
 <html>
 <head>
-        <title>Jace's Grocery Main Page</title>
+        <link rel="stylesheet" href="homeStyle.css">
+        <title>PcSolutions</title>
 </head>
 <body>
-<h1 align="center">Welcome to Jace's Grocery</h1>
+        <div class="background">
+                <h1 align="center">PcSolutions</h1>
+        </div>
+
 
 <h2 align="center"><a href="login.jsp">Login</a></h2>
 
