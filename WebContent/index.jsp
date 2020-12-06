@@ -13,7 +13,7 @@
                                 String userName = (String) session.getAttribute("authenticatedUser");
                                 boolean loggedIn= false;
 	                        if(userName == null)
-                                out.println("<a href='login.jsp' style='color:white'>Login</a> OR <a href='login.jsp' style='color:white'>Register</a>");
+                                out.println("<a href='login.jsp' style='color:white'>Login</a> OR <a href='createuser.jsp' style='color:white'>Register</a>");
                                 else{
                                         loggedIn= true;
                                         out.println("Logged in: "+ userName) ;

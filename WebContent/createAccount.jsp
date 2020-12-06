@@ -5,6 +5,7 @@
 // GET DATA
 String firstName = request.getParameter("firstName");
 String lastName = request.getParameter("lastName");
+String email = request.getParameter("email");
 String phone = request.getParameter("phonenum");
 String address = request.getParameter("address");
 String city = request.getParameter("city");
@@ -22,6 +23,9 @@ if(firstName == null || firstName.equals("")) {
     response.sendRedirect("createuser.jsp");
 }else if(lastName == null || lastName.equals("")) {
     session.setAttribute("createMessage","Please Fill In Your Last Name");
+    response.sendRedirect("createuser.jsp");
+}else if(email == null || email.equals("")) {
+    session.setAttribute("createMessage","Please Fill In Your Email");
     response.sendRedirect("createuser.jsp");
 }else if(phone == null || phone.equals("")) {
     session.setAttribute("createMessage","Please Fill In Your Phone Number");
@@ -52,27 +56,32 @@ if(firstName == null || firstName.equals("")) {
     try {
         getConnection();
         con = DriverManager.getConnection(url, uid, pw);
-		String sql = "INSERT INTO customer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+		String sql = "INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country,userid, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pstmt = con.prepareStatement(sql);
+        //pstmt.setInt(1, 15);            // cust id
         pstmt.setString(1, firstName);
         pstmt.setString(2, lastName);
-        pstmt.setString(3, phone);
-        pstmt.setString(4, address);
-        pstmt.setString(5, city);
-        pstmt.setString(6, state);
-        pstmt.setString(7, postal);
-        pstmt.setString(8, country);
-        pstmt.setString(9, username);
-        pstmt.setString(10, password);
+        pstmt.setString(3, email);
+        pstmt.setString(4, phone);
+        pstmt.setString(5, address);
+        pstmt.setString(6, city);
+        pstmt.setString(7, state);
+        pstmt.setString(8, postal);
+        pstmt.setString(9, country);
+        pstmt.setString(10, username);
+        pstmt.setString(11, password);
 		pstmt.executeUpdate();
 
-    }catch(SQLException ex) {
-        out.println(ex);
-    }finally {
-    // SEND USER BACK TO LOGIN PAGE
+        // SEND USER BACK TO LOGIN PAGE
         closeConnection();
         session.setAttribute("loginMessage","You Have Succsessfully Created Your account");
         response.sendRedirect("login.jsp");
+    }catch(SQLException ex) {
+        out.println(ex);
+    }finally {
+    
     }
+    
 }
 %>
