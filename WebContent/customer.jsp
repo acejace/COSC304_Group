@@ -1,16 +1,15 @@
+<%@ include file="auth.jsp"%>
+<%@ page import="java.text.NumberFormat" %>
+<%@ include file="jdbc.jsp" %>
 <!DOCTYPE html>
 	<html>
 		<head>
 			<link rel="stylesheet" href="css/homeStyle.css">
 			<title>Proper Tech</title>
-	</head>
+		</head>
 	
-	</head>
 	<body>
 
-<%@ include file="auth.jsp"%>
-<%@ page import="java.text.NumberFormat" %>
-<%@ include file="jdbc.jsp" %>
 <div class="header">
 	<ul class="header"> 
 			<li class="header">
@@ -39,9 +38,8 @@
 <h1 class="main">Customer Details</h1>
 <div class="main">
 <%
-	String userName = (String) session.getAttribute("authenticatedUser");
 	if(userName == null)
-	out.println("<h2><a href=\"login.jsp\"></a></h2>");
+		out.println("<h2><a href=\"login.jsp\"></a></h2>");
 %>
 
 <%
