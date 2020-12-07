@@ -18,7 +18,7 @@ try{
     String uid = "SA";
     String pw = "YourStrong@Passw0rd";
     Connection con = DriverManager.getConnection(url, uid, pw);
-    Statement stmt = con.createStatement();
+    
     String sql = "";
     String delOrChange = request.getParameter("requests");
     String id = request.getParameter("id");
@@ -40,8 +40,8 @@ try{
         out.print("Has been deleted");
     }
 
-    
-    ResultSet rst = stmt.executeQuery(sql);
+    PreparedStatement pstmt = con.prepareStatement(sql)
+    pstmt.executeUpdate()
  
     
 }catch(Exception ex){
