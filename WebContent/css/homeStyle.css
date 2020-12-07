@@ -57,6 +57,7 @@ table.products{
 }
 table{
     width: 100%;
+    border: none;
 }
 table.orders{
     padding-left: 5%;
@@ -79,7 +80,6 @@ table.orders tr td{
     position: relative;
     text-align: left;
 }
-
 table.orderDetails{
     padding: 0;
 }
@@ -180,7 +180,7 @@ ul.nav{
 li.nav{
     display: inline-block;
     text-align: center;
-    width: 24%;
+    width: 19%;
 }
 ul.header{
     list-style-type: none;

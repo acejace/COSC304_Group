@@ -39,7 +39,7 @@
 
 <div class="main">
 
-        <ul class="nav" > 
+        <ul class="nav"> 
                 <li class="nav"><a href="listprod.jsp">Shop</a></li>
 
                 <li class="nav"><a href="listorder.jsp">Order Details</a></li>
@@ -47,7 +47,7 @@
                 <li class="nav"><a href="customer.jsp">Customer Information</a></li>
 
                 <li class="nav"><a href="admin.jsp">Administrators</a></li>
-		
+	
 		<li class="nav"><a href="inventory.jsp">Inventory</a></li>
         </ul>
 
