@@ -41,7 +41,7 @@
 <%
 // Print prior error login message if present
 if (session.getAttribute("loginMessage") != null)
-	out.println("<p>"+session.getAttribute("loginMessage").toString()+"</p>");
+	out.println("<p style='color:white;'>"+session.getAttribute("loginMessage").toString()+"</p>");
 %>
 
 <br>
