@@ -1,5 +1,6 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <%@ include file="jdbc.jsp" %>
 
@@ -41,8 +42,6 @@ String productId = request.getParameter("id");
 
 String sql = "SELECT productId, productName, productPrice, productImageURL, productImage FROM Product P  WHERE productId = ?";
 
-NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-
 try 
 {
 	getConnection();
@@ -58,11 +57,12 @@ try
 	else
 	{		
 		out.println("<h2 class='products' style='padding-left:0%'>"+rst.getString(2)+"</h2>");
-		
+		NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
+		String productPrice = (currFormat.format(rst.getDouble(3)));
 		int prodId = rst.getInt(1);
 		out.println("<table style=><tr>");
 		out.println("<th style='text-align: right;'> Product Id</th><td style='text-align: left;'>" + prodId + "</td></tr>"				
-				+ "<tr><th style='text-align: right;'>Price</th><td style='text-align: left;'>" + currFormat.format(rst.getDouble(3)) + "</td></tr>");
+				+ "<tr><th style='text-align: right;'>Price</th><td style='text-align: left;'>" + productPrice + "</td></tr>");
 		
 		//  Retrieve any image with a URL
 		String imageLoc = rst.getString(4);
