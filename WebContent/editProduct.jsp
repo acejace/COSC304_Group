@@ -60,8 +60,6 @@ int categoryId = rst.getInt(7);
 
 %>
 
-
-
 <body>
     <div style="text-align:center; display: block;">
         <h1>Change Product</h1>
@@ -73,7 +71,7 @@ int categoryId = rst.getInt(7);
                             <font face="Arial, Helvetica, sans-serif" size="2">Product Name:</font>
                         </div>
                     </td>
-                    <td><input type="text" id="name" name="Product Name" value=<%out.print(String.format("%s",name));%>>
+                    <td><input type="text" id="name" name="Product Name" value='<%out.print(String.format("%s",name));%>'>
                     </td>
                 </tr>
                 <tr>
@@ -91,7 +89,7 @@ int categoryId = rst.getInt(7);
                             <font face="Arial, Helvetica, sans-serif" size="2">imageURL</font>
                         </div>
                     </td>
-                    <td><input type="text" id=url name="URL" value=<%out.print(String.format("%s",picURL));%>></td>
+                    <td><input type="text" id=url name="URL" value='<%out.print(String.format("%s",picURL));%>'></td>
                 </tr>
                 <tr>
                     <td>
@@ -100,7 +98,7 @@ int categoryId = rst.getInt(7);
                         </div>
                     </td>
                     <td><input type="text" id="desc" name="Description"
-                            value=<%out.print(String.format("%s",productDesc));%>></td>
+                            value='<%out.print(String.format("%s",productDesc));%>'></td>
                 </tr>
                 <tr>
                     <td>
