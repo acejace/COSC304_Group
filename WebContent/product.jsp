@@ -7,20 +7,7 @@
 <html>
 	<title>Products</title>
 	<link rel="stylesheet" href="css/homeStyle.css">
-	<style>
-	table {
-	  font-family: arial, sans-serif;
-	  border-collapse: collapse;
-	  width: 100%;
-	}
-	
-	td, th {
-	  border: 1px solid #dddddd;
-	  text-align: left;
-	  padding: 8px;
-	}
 
-</style>
 </head>
 <body>
 		<div class="header">
@@ -98,7 +85,7 @@ try
 		pstmt.setInt(1, Integer.parseInt(productId));	
 		rst = pstmt.executeQuery();
 		while(rst.next()){
-		out.println("<table><tr><th>Review date</th><th>Review rating</th><th>Customer ID</th><th>Review </th></tr>");
+		out.println("<table class='orders' style='padding-top: 5%;' ><tr><th>Review date</th><th>Review rating</th><th>Customer ID</th><th>Review </th></tr>");
 			out.println("<tr><td>" + rst.getString(2) + "</td><td> " + rst.getString(1) + "</td><td>" + rst.getString(3) + "</td><td>" + rst.getString(4) + "</td></tr>");
 		
 		out.println("</table></td>");}
