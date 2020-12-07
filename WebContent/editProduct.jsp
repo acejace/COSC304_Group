@@ -64,9 +64,8 @@ int categoryId = rst.getInt(7);
 
 <body>
     <div style="text-align:center; display: block;">
-        <h1>Change User</h1>
+        <h1>Change Product</h1>
         <form name="updateForm" method=POST action="admin.jsp">
-            <%out.print(String.format("<img src='data:image/gif;base64,%s'>",image));%>
             <table style="display:inline">
                 <tr>
                     <td>
@@ -118,8 +117,8 @@ int categoryId = rst.getInt(7);
                 </tr>
             </table>
             <br />
-            <input class="submit" type="submit" name="Change" id="Change" value="Change Account">
-            <input class="submit" type="submit" name="Delete" id="Delete" value="Delete Account">
+            <input class="submit" type="submit" name="Change" id="Change" value="Change Product">
+            <input class="submit" type="submit" name="Delete" id="Delete" value="Delete Product">
             <p id="form-msg"></p>
         </form>
 

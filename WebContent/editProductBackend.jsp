@@ -38,7 +38,6 @@ try{
         out.println("Has been Deleted");
     }
 
-    out.print(sql);
     PreparedStatement pstmt = con.prepareStatement(sql);
     pstmt.executeUpdate();
  
