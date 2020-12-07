@@ -22,9 +22,11 @@ try{
     String id = request.getParameter("id");
     if(delOrChange.equalsIgnoreCase("0")){
         String name = request.getParameter("name");
+        name = name.replaceAll("%27", " ");
         String price = request.getParameter("price");
         String imgURL = request.getParameter("url");
         String desc = request.getParameter("desc");
+        desc = desc.replaceAll("%27", " ");
         String catId = request.getParameter("catId");
         sql = String.format("UPDATE product SET productName = '%s', productPrice = %s, ",name,price);
         sql += String.format("productImageURL = '%s', productDesc = '%s', categoryId = %s ",imgURL, desc, catId);
