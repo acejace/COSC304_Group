@@ -4,11 +4,6 @@
 <head>
     <title>Edit User</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(function (){
-        
-    });
-    </script>
 </head>
 <body>
 <% 
@@ -20,8 +15,10 @@ try{
     String sql = "";
     String delOrChange = request.getParameter("requests");
     String id = request.getParameter("id");
+    //Checks if delete or update was clicked 
     if(delOrChange.equalsIgnoreCase("0")){
         String name = request.getParameter("name");
+        //%27 changes spaces to ' so im changing them to spaces
         name = name.replaceAll("'", " ");
         String price = request.getParameter("price");
         String imgURL = request.getParameter("url");
@@ -38,7 +35,7 @@ try{
         sql = String.format("Delete product WHERE productId = %s", id);
         out.println("Has been Deleted\n");
     }
-
+    //makes and executes
     PreparedStatement pstmt = con.prepareStatement(sql);
     pstmt.executeUpdate();
  
