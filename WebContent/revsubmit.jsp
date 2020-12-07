@@ -16,13 +16,16 @@
 int rating = Integer.parseInt(request.getParameter("myRange"));
 String review = request.getParameter("review");
 
+int prodId = Integer.parseInt(productId);
+int custId = Integer.parseInt(customerId);
+
 try 
 {
     getConnection();
     String sqlcheck = "Select * FROM review WHERE productId = ? and customerId = ?";
     PreparedStatement pstmt = con.prepareStatement(sqlcheck);
-    pstmt.setInt(1, productId);
-    pstmt.setInt(2, customerId);
+    pstmt.setInt(1, prodId);
+    pstmt.setInt(2, custId);
     ResultSet rst = pstmt.executeQuery();
    
     if(!rst.next()){
@@ -36,8 +39,8 @@ try
 	LocalDateTime currenttime = LocalDateTime.now(); 
     pstmt.setString(2, sdtf.format(currenttime));
 
-    pstmt.setInt(3, customerId);
-    pstmt.setInt(4, productId);
+    pstmt.setInt(3, custId);
+    pstmt.setInt(4, prodId);
 
     pstmt.setString(5, review);
 

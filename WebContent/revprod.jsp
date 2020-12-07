@@ -55,8 +55,11 @@
 
 <%@ include file="header.jsp" %>
 <%
-int productId = Integer.parseInt(request.getParameter("pID"));
-int customerId = Integer.parseInt(request.getParameter("cusID"));
+//String productId = request.getParameter("pID");
+//String customerId = request.getParameter("cusID");
+int productId = 1;
+int customerId = 2;
+
 %>
 
 <form align="center" action="revsubmit.jsp">
