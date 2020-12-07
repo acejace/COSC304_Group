@@ -36,6 +36,7 @@
 			</li>
 	</ul>
 </div>
+<h1 class="main">Your cart</h1>
 <div class='main'>
 <%
 // Get the current list of products
