@@ -40,12 +40,12 @@ try{
         out.print("Has been deleted");
     }
 
-    PreparedStatement pstmt = con.prepareStatement(sql)
-    pstmt.executeUpdate()
+    PreparedStatement pstmt = con.prepareStatement(sql);
+    pstmt.executeUpdate();
  
     
 }catch(Exception ex){
-    System.out.print(ex);
+    System.out.println(ex);
 }
 %>
 </body>
