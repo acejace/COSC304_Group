@@ -14,7 +14,6 @@
                 inputs[3] = (document.getElementById("desc").value);
                 inputs[4] = (document.getElementById("catId").value);
                 inputs[5] = (document.getElementById("id").value);
-                alert("This is 0");
                 $("#form-msg").load("editProductBackend.jsp?id=" + inputs[5] + "&name=" + inputs[0] + "&price=" + inputs[1] + "&url=" + inputs[2] + "&desc=" + inputs[3] + "&catId=" + inputs[4] + "&requests=0");
             });
 
@@ -26,7 +25,6 @@
                 inputs[3] = (document.getElementById("desc").value);
                 inputs[4] = (document.getElementById("catId").value);
                 inputs[5] = (document.getElementById("id").value);
-                alert("This is 1");
                 $("#form-msg").load("editProductBackend.jsp?id=" + inputs[5] + "&name=" + inputs[0] + "&price=" + inputs[1] + "&url=" + inputs[2] + "&desc=" + inputs[3] + "&catId=" + inputs[4] + "&requests=1");
             });
         });
