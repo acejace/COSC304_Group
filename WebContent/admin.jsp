@@ -42,10 +42,6 @@
 		<%
 // TODO: Include files auth.jsp and jdbc.jsp
 
-%>
-
-		<%
-
 try {
 // TODO: Write SQL query that prints out total order amount by day
     String sql = " SELECT DATEADD(dd, 0, DATEDIFF(dd, 0, orderDate)), SUM(totalAmount) FROM ordersummary GROUP BY DATEADD(dd, 0, DATEDIFF(dd, 0, orderDate))";
