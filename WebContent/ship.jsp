@@ -77,6 +77,9 @@
 				}else{
 					out.println(String.format("<h2>Ordered product: %s Qty: %s Previous inventory: %d New inventory: %d", productId, orderQuant, warehouseQuant, newQuant));
 					
+					String link = String.format("revprod.jsp?pID=%d&cusID=%s",productId,request.getParameter("cusID"));
+					out.println(String.format("<h1><a href='%s'>Click to add a review</a></h1>",link));
+
 					String sql3 = String.format("UPDATE productinventory SET quantity = %d WHERE productId = %d", newQuant, productId);
 					PreparedStatement pstmt3 = con.prepareStatement(sql3);
 					pstmt3.executeUpdate();
@@ -87,6 +90,7 @@
 				con.commit();
 				out.println("<h1>Shipment successfully processed.</h1>");
 			}
+
 			out.println("<h2><a href=index.jsp>Back to Main Page</a></h2>");
 
 			// TODO: Auto-commit should be turned back on

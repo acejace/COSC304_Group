@@ -25,11 +25,28 @@ h1.main {
     position: relative;
     text-align: center;
   }
+h2.login{
+    color:white;
+    font-weight: bold;
+    font-size: 1.5vw;
+    padding-left: 5%;
+    padding-top: 5%;
+    position: relative;
+    text-align: left;
+}
 h2.products{
     color:white;
     font-weight: bold;
     font-size: 1.5vw;
     padding-left: 5%;
+    position: relative;
+    text-align: left;
+}
+h2.productDetail{
+    color:white;
+    font-weight: bold;
+    font-size: 1.5vw;
+    padding-top: 5%;
     position: relative;
     text-align: left;
 }
@@ -87,6 +104,35 @@ table.customerDetails tr th{
     text-align: right;
 }
 table.customerDetails tr td{
+    text-align: left;
+}
+table.showcart{
+    color:white;
+    font-weight: bold;
+    font-size: 0.75vw;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%
+    position: relative;
+    text-align: left;
+}
+table.showcart tr th{
+    color:white;
+    font-weight: bold;
+    font-size: 1.5vw;
+    width: 15%;
+    padding-left: 5%;
+    padding-right: 5%
+    position: relative;
+    text-align: left;
+}
+table.showcart tr td{
+
+    font-size: 1.25vw;
+    width: auto;
+    padding-left: 5%;
+    padding-right: 5%
+    position: relative;
     text-align: left;
 }
 tr th{

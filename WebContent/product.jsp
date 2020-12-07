@@ -1,24 +1,60 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <%@ include file="jdbc.jsp" %>
 
 <html>
-<head>
-<title>Rays Grocery - Product Information</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
+	<title>Products</title>
+	<link rel="stylesheet" href="css/homeStyle.css">
+	<style>
+	table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+	
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: left;
+	  padding: 8px;
+	}
+
+</style>
 </head>
 <body>
-
-<%@ include file="header.jsp" %>
-
+		<div class="header">
+			<ul class="header"> 
+					<li class="header">
+							<%
+							String userName = (String) session.getAttribute("authenticatedUser");
+							boolean loggedIn= false;
+						if(userName == null)
+							out.println("<a href='login.jsp' style='color:white'>Login</a> OR <a href='login.jsp' style='color:white'>Register</a>");
+							else{
+									loggedIn= true;
+									out.println("Logged in: "+ userName) ;
+							}
+							%>      
+					</li>        
+					<li class="header"><a href="index.jsp" style="color:white">Home</a></li>
+					<li class="header">
+							<%
+							if (loggedIn) out.println("<a href='logout.jsp' style='color:white'>LogOut</a>");
+							else{
+									out.println("Not currently logged in.");
+							}
+							%>
+					</li>
+			</ul>
+		</div>
+		<h1 class="main">Product</h1>
+<div class="main">
 <%
 // Get product name to search for
 String productId = request.getParameter("id");
 
 String sql = "SELECT productId, productName, productPrice, productImageURL, productImage FROM Product P  WHERE productId = ?";
-
-NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 
 try 
 {
@@ -34,12 +70,13 @@ try
 	}
 	else
 	{		
-		out.println("<h2>"+rst.getString(2)+"</h2>");
-		
+		out.println("<h2 class='products' style='padding-left:0%'>"+rst.getString(2)+"</h2>");
+		NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
+		String productPrice = (currFormat.format(rst.getDouble(3)));
 		int prodId = rst.getInt(1);
-		out.println("<table><tr>");
-		out.println("<th>Id</th><td>" + prodId + "</td></tr>"				
-				+ "<tr><th>Price</th><td>" + currFormat.format(rst.getDouble(3)) + "</td></tr>");
+		out.println("<table style=><tr>");
+		out.println("<th style='text-align: right;'> Product Id</th><td style='text-align: left;'>" + prodId + "</td></tr>"				
+				+ "<tr><th style='text-align: right;'>Price</th><td style='text-align: left;'>" + productPrice + "</td></tr>");
 		
 		//  Retrieve any image with a URL
 		String imageLoc = rst.getString(4);
@@ -51,12 +88,22 @@ try
 		if (imageBinary != null)
 			out.println("<img src=\"displayImage.jsp?id="+prodId+"\">");	
 		out.println("</table>");
-		
 
 		out.println("<h3><a href=\"addcart.jsp?id="+prodId+ "&name=" + rst.getString(2)
-								+ "&price=" + rst.getDouble(3)+"\">Add to Cart</a></h3>");		
+			+ "&price=" + rst.getDouble(3)+"\">Add to Cart</a></h3>");		
+		out.println("<h3><a href=\"listprod.jsp\">Continue Shopping</a>");	
 		
-		out.println("<h3><a href=\"listprod.jsp\">Continue Shopping</a>");
+		sql = "SELECT reviewRating, reviewDate, customerId, reviewComment FROM review WHERE productId = ?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, Integer.parseInt(productId));	
+		rst = pstmt.executeQuery();
+		while(rst.next()){
+		out.println("<table><tr><th>Review date</th><th>Review rating</th><th>Customer ID</th><th>Review </th></tr>");
+			out.println("<tr><td>" + rst.getString(2) + "</td><td> " + rst.getString(1) + "</td><td>" + rst.getString(3) + "</td><td>" + rst.getString(4) + "</td></tr>");
+		
+		out.println("</table></td>");}
+
+		
 	}
 } 
 catch (SQLException ex) {
@@ -67,7 +114,7 @@ finally
 	closeConnection();
 }
 %>
-
+</div>
 </body>
 </html>
 

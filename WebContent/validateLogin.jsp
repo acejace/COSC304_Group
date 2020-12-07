@@ -3,7 +3,7 @@
 <%
 	String authenticatedUser = null;
 	session = request.getSession(true);
-
+	session.removeAttribute("loginMessage");
 	try
 	{
 		authenticatedUser = validateLogin(out,request,session);
@@ -62,7 +62,8 @@
 		}	
 		
 		if(retStr != null)
-		{	session.removeAttribute("loginMessage");
+		{	
+			session.removeAttribute("loginMessage");
 			session.setAttribute("authenticatedUser",username);
 		}
 		else

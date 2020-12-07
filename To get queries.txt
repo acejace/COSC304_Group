@@ -42,46 +42,6 @@ Nvidia RTX 3090
 1
 Graphics Card
 1999.99
-EVGA GTX 1080
-1
-Graphics Card
-199.99
-ASUS GTX 1080
-1
-Graphics Card
-219.99
-NVIDIA GTX 1080 Founders Edition
-1
-Graphics Card
-189.99
-MSI GTX 1080 Ti Gaming X Trio
-1
-Graphics Card
-229.99
-ZOTAC RTX 3070
-1
-Graphics Card
-599.99
-Nvidia RTX 3070
-1
-Graphics Card
-579.99
-Nvidia RTX 3080
-1
-Graphics Card
-899.99
-ZOTAC RTX 3080
-1
-Graphics Card
-899.99
-ASUS RTX 3080 TUF
-1
-Graphics Card
-929.99
-ASUS RTX 3080 ROG STRIX
-1
-Graphics Card
-929.99
 AMD RYZEN 5 3600
 2
 Processor
