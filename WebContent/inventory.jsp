@@ -78,7 +78,7 @@ finally {
 }
 
 %>
-<form name="MyForm" method=post action="editInventory.jsp"></form>
+<form name="MyForm" method=post action="editInventory.jsp">
 <table style="display:inline">
 
 	<tr>

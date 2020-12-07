@@ -24,23 +24,21 @@
     try 
     {
         getConnection();
+		String sql3 = String.format("UPDATE productinventory SET quantity = %d WHERE productId = %d", quantity, productId);
+		PreparedStatement pstmt3 = con.prepareStatement(sql3);
+		pstmt3.executeUpdate();
+		out.println("<h2><a href=index.jsp>Back to Main Page</a></h2>");
 
-			    String sql3 = String.format("UPDATE productinventory SET quantity = %d WHERE productId = %d", quantity, productId);
-				PreparedStatement pstmt3 = con.prepareStatement(sql3);
-				pstmt3.executeUpdate();
-				}
-			}
-
-			out.println("<h2><a href=index.jsp>Back to Main Page</a></h2>");
-
-        } 
-        catch (SQLException ex) {
-            out.println(ex);
-        }
-        finally
-        {
-            closeConnection();
-        }
+        closeConnection();
+        response.sendRedirect("inventory.jsp");
+    } 
+    catch (SQLException ex) {
+        out.println(ex);
+    }
+    finally
+    {
+        closeConnection();
+    }
 %>                       				
 
 </body>
