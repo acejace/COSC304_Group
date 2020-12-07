@@ -67,19 +67,16 @@ try {
 	sql = "SELECT firstName, lastName FROM customer";
 	rst = stmt.executeQuery(sql);
 	out.println("<h2 style='color:white;'>Customers</h2>");
-    out.println("<table>");
 	out.println("<table><tr><th>First Name</th><th>Last Name</th></tr>");
 	while(rst.next()) {
 		String firstname = rst.getString(1);
 		String lastname = rst.getString(2);
 		out.println("<tr><td>" + firstname + "</td><td>" + lastname + "</td></tr>");
 	}
+	out.println("</table>");
 	
-%>
-
-	<table>
-		<tr>
-<%
+	out.println("<h2 style='color:white;'>Products</h2>");
+	out.println("<table><tr>");
 	sql = "SELECT productId, productName FROM product";
 	Statement stmt1 = con.createStatement();
 	ResultSet rst1 = stmt1.executeQuery(sql);
