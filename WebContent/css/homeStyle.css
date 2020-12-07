@@ -99,7 +99,27 @@ table.orderDetails tr td{
     position: relative;
     text-align: left;
 }
-
+table.inventory{
+    padding-left: 5%;
+    padding-right:5%
+}
+table.inventory tr th{
+    color:white;
+    font-weight: bold;
+    font-size: 1.5vw;
+    width: 24%;
+    padding-left: 5%;
+    position: relative;
+    text-align: left;
+}
+table.inventory tr td{
+    color:white;
+    font-size: 1.25vw;
+    width: 24%;
+    padding-left: 5%;
+    position: relative;
+    text-align: left;
+}
 table.customerDetails tr th{
     text-align: right;
 }

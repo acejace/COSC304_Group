@@ -6,20 +6,7 @@
 		<title>Proper Tech</title>
 
 </head>
-<style>
-	table {
-	  font-family: arial, sans-serif;
-	  border-collapse: collapse;
-	  width: 100%;
-	}
-	
-	td, th {
-	  border: 1px solid #dddddd;
-	  text-align: left;
-	  padding: 8px;
-	}
 
-</style>
 <body>
 	<div class="header">
 		<ul class="header">
@@ -62,7 +49,7 @@ try {
     ResultSet rst = stmt.executeQuery(sql);
    
     out.println("<table>");
-        out.println("<table><tr><th>Product ID</th><th>Warehouse ID</th><th>Quantity</th><th>price</th></tr>");
+        out.println("<table class='inventory'><tr><th>Product ID</th><th>Warehouse ID</th><th>Quantity</th><th>Price</th></tr>");
 			while (rst.next()) {
                 out.println("<tr><td>" + rst.getString(1)+ "</td><td>" + rst.getString(2) + "</td><<td>" + rst.getString(3) + "</td><<td>" + rst.getString(4) + "</td></tr>");
             }
@@ -82,16 +69,18 @@ finally {
 <table style="display:inline">
 
 	<tr>
-		<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product ID:</font></div></td>
-		<td><input type="text" name="pID"  size=10 maxlength=10></td>
+		<td><div align="right"><font face="Arial, Helvetica, sans-serif" style="width:100%">Product ID:</font></div></td>
+		<td><input type="text" name="pID"  size=10 maxlength=10 style="width:100%"></td>
 	</tr>
 	<tr>
-		<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">New Quantity:</font></div></td>
-		<td><input type="text" name="quant"  size=10 maxlength=10></td>
+		<td><div align="right"><font face="Arial, Helvetica, sans-serif" style="width:100%">New Quantity:</font></div></td>
+		<td><input type="text" name="quant"  size=10 maxlength=10 style="width:100%"></td>
+	</tr>
+	<tr>
+		<td colspan="2"> <input class="submit" type="submit" name="Submit" value="Update Inventory" style="width:100%; margin-left: 5%; margin-top: 5%;"> </td>
 	</tr>	
 	</table>
 	<br/>
-<input class="submit" type="submit" name="Submit" value="Update Inventory">
 </form>
 </div>
 </body>
