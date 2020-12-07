@@ -97,14 +97,10 @@ try
 		pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, Integer.parseInt(productId));	
 		rst = pstmt.executeQuery();
-		if (!rst.next())
-		{
-		out.println(" ");
-		}else{
+		while(rst.next()){
 		out.println("<table><tr><th>Review date</th><th>Review rating</th><th>Customer ID</th><th>Review </th></tr>");
-		while (rst.next()){
 			out.println("<tr><td>" + rst.getString(2) + "</td><td> " + rst.getString(1) + "</td><td>" + rst.getString(3) + "</td><td>" + rst.getString(4) + "</td></tr>");
-		}
+		
 		out.println("</table></td>");}
 
 		
