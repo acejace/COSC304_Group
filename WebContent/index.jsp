@@ -47,6 +47,8 @@
                 <li class="nav"><a href="customer.jsp">Customer Information</a></li>
 
                 <li class="nav"><a href="admin.jsp">Administrators</a></li>
+		
+		<li class="nav"><a href="inventory.jsp">Inventory</a></li>
         </ul>
 
 <h1 style="color:white;">About Us</h1>
