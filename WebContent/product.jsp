@@ -9,6 +9,20 @@
 	<link rel="stylesheet" href="css/homeStyle.css">
 	</head>
 	<body>
+	<style>
+	table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+	
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: left;
+	  padding: 8px;
+	}
+
+</style>
 		<div class="header">
 			<ul class="header"> 
 					<li class="header">
@@ -74,6 +88,17 @@ try
 		if (imageBinary != null)
 			out.println("<img src=\"displayImage.jsp?id="+prodId+"\">");	
 		out.println("</table>");
+		
+		sql = "SELECT reviewRating, reviewDate, customerId, reviewComment FROM review WHERE productId = ?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, Integer.parseInt(productId));	
+		rst = pstmt.executeQuery();
+		out.println("<table><tr><th>Review date</th><th>Review rating</th><th>Customer ID</th><th>Review</th></tr>");
+		while (rst.next()){
+
+			out.println("<tr><td>" + rst.getString(2) + "</td><td> " + rst.getString(1) + "</td><td>" + rst.getString(3) + "</td><td>" + rst.getString(4) + "</td></tr>");
+		}
+		out.println("</table></td>");
 		
 
 		out.println("<h3><a href=\"addcart.jsp?id="+prodId+ "&name=" + rst.getString(2)
