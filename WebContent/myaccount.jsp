@@ -18,6 +18,12 @@
 
 <h2>Edit Account Information</h2>
 
+<%
+// Print prior error login message if present
+if (session.getAttribute("editMessage") != null)
+	out.println("<p>"+session.getAttribute("editMessage").toString()+"</p>");
+%>
+
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Address:</font></div></td>
 	<td><input type="text" name="address"  size=10 maxlength=10></td>
