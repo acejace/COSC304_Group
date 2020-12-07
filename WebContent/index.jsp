@@ -39,7 +39,7 @@
 
 <div class="main">
 
-        <ul class="nav" > 
+        <ul class="nav"> 
                 <li class="nav"><a href="listprod.jsp">Shop</a></li>
 
                 <li class="nav"><a href="listorder.jsp">Order Details</a></li>
@@ -47,13 +47,13 @@
                 <li class="nav"><a href="customer.jsp">Customer Information</a></li>
 
                 <li class="nav"><a href="admin.jsp">Administrators</a></li>
-		
+	
 		<li class="nav"><a href="inventory.jsp">Inventory</a></li>
         </ul>
-
-<h1 style="color:white;">About Us</h1>
-<h3 style="color:white;">At Proper tech we specialize in providing cutting edge computer components. We pride ourselves on our extensive library of high-quality gaming components. Customer can build their ideal PC to suit their gaming needs. We aim to accommodate all gamers, whether you are looking for a high-end gaming rig, or a starter PC that can still give you the edge that you’re looking for. </h3>
-
+<div class='text'>
+<h1 style="color:white;"><b>About Us</b></h1>
+At Proper tech we specialize in providing cutting edge computer components. We pride ourselves on our extensive library of high-quality gaming components. Customer can build their ideal PC to suit their gaming needs. We aim to accommodate all gamers, whether you are looking for a high-end gaming rig, or a starter PC that can still give you the edge that you’re looking for.
+</div>
 </div>
 
 <%
