@@ -75,6 +75,7 @@ try {
 	}
 	out.println("</table>");
 	
+	//Lists products
 	out.println("<h2 style='color:white;'>Products</h2>");
 	out.println("<table><tr>");
 	sql = "SELECT productId, productName FROM product";
