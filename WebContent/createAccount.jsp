@@ -80,7 +80,7 @@ if(firstName == null || firstName.equals("")) {
     }catch(SQLException ex) {
         out.println(ex);
     }finally {
-    
+        closeConnection();
     }
     
 }
