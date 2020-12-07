@@ -13,9 +13,9 @@
 </head>
 <body>
 	<div class="header">
-		<ul class="header"> 
-				<li class="header">
-						<%
+		<ul class="header">
+			<li class="header">
+				<%
 						String userName = (String) session.getAttribute("authenticatedUser");
 						boolean loggedIn= false;
 					if(userName == null)
@@ -24,19 +24,19 @@
 								loggedIn= true;
 								out.println("Logged in: "+ userName) ;
 						}
-						%>      
-				</li>        
-				<li class="header"><a href="index.jsp" style="color:white">Home</a></li>
-				<li class="header">
-						<%
-						if (loggedIn) out.println("<a href='logout.jsp' style='color:white'>LogOut</a>");
+						%>
+			</li>
+			<li class="header"><a href="index.jsp" style="color:white">Home</a></li>
+			<li class="header">
+				<%
+						if (loggedIn) out.println("<p><a href='myaccount.jsp' style='color:white'>My Account</a> <a href='logout.jsp' style='color:white'>LogOut</a></p>");
 						else{
 								out.println("Not currently logged in.");
 						}
 						%>
-				</li>
+			</li>
 		</ul>
-</div>
+	</div>
 <h1 class="main">Order Details</h1>
 <div class="main">
 <h1>Order List</h1>

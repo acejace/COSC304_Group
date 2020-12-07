@@ -11,31 +11,32 @@
 	<link rel="stylesheet" href="css/homeStyle.css">
 	<title>Proper Tech</title>
 </head>
-<body>        <div class="header">
-	<ul class="header"> 
+<body>        
+	<div class="header">
+		<ul class="header">
 			<li class="header">
-					<%
-					String userName = (String) session.getAttribute("authenticatedUser");
-					boolean loggedIn= false;
-				if(userName == null)
-					out.println("<a href='login.jsp' style='color:white'>Login</a> OR <a href='createuser.jsp' style='color:white'>Register</a>");
-					else{
-							loggedIn= true;
-							out.println("Logged in: "+ userName) ;
-					}
-					%>      
-			</li>        
+				<%
+						String userName = (String) session.getAttribute("authenticatedUser");
+						boolean loggedIn= false;
+					if(userName == null)
+						out.println("<a href='login.jsp' style='color:white'>Login</a> OR <a href='login.jsp' style='color:white'>Register</a>");
+						else{
+								loggedIn= true;
+								out.println("Logged in: "+ userName) ;
+						}
+						%>
+			</li>
 			<li class="header"><a href="index.jsp" style="color:white">Home</a></li>
 			<li class="header">
-					<%
-					if (loggedIn) out.println("<a href='logout.jsp' style='color:white'>LogOut</a>");
-					else{
-							out.println("Not currently logged in.");
-					}
-					%>
+				<%
+						if (loggedIn) out.println("<p><a href='myaccount.jsp' style='color:white'>My Account</a> <a href='logout.jsp' style='color:white'>LogOut</a></p>");
+						else{
+								out.println("Not currently logged in.");
+						}
+						%>
 			</li>
-	</ul>
-</div>
+		</ul>
+	</div>
 <h1 class="main">Your cart</h1>
 <div class='main'>
 <%
