@@ -46,10 +46,10 @@ if (session.getAttribute("loginMessage") != null)
 
 <br>
 <form name="MyForm" method=post action="validateLogin.jsp">
-<table style="display:inline; width=10%">
+<table style="display:inline; width:50%">
 <tr>
-	<td><div align="left">Username:</div></td>
-	<td><input type="text" name="username"  maxlength=10></td>
+	<td style="width:50%"><div align="left">Username:</div></td>
+	<td style="width:50%"> <input type="text" name="username"  maxlength=10></td>
 </tr>
 <tr>
 	<td><div align="left">Password:</div></td>
@@ -57,12 +57,12 @@ if (session.getAttribute("loginMessage") != null)
 </tr>
 </table>
 <br/>
-<input class="submit" type="submit" name="Submit2" value="Log In" >
+<input class="submit" type="submit" name="Submit2" value="Log In" style="width: 15%; margin-left: 1%;">
 </form>
 
 <form name="createAcc" method=post action="createuser.jsp">
 <table style="display:inline">
-<input class="submit" type="submit" name="Submit3" value="Create Account">
+<input class="submit" type="submit" name="Submit3" value="Create Account" style="width: 15%; margin-left: 1%;">
 </table>
 </form>
 
