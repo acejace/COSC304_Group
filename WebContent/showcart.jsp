@@ -8,10 +8,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Your Shopping Cart</title>
+	<link rel="stylesheet" href="css/homeStyle.css">
+	<title>Proper Tech</title>
 </head>
-<body>
-
+<body>        <div class="header">
+	<ul class="header"> 
+			<li class="header">
+					<%
+					String userName = (String) session.getAttribute("authenticatedUser");
+					boolean loggedIn= false;
+				if(userName == null)
+					out.println("<a href='login.jsp' style='color:white'>Login</a> OR <a href='createuser.jsp' style='color:white'>Register</a>");
+					else{
+							loggedIn= true;
+							out.println("Logged in: "+ userName) ;
+					}
+					%>      
+			</li>        
+			<li class="header"><a href="index.jsp" style="color:white">Home</a></li>
+			<li class="header">
+					<%
+					if (loggedIn) out.println("<a href='logout.jsp' style='color:white'>LogOut</a>");
+					else{
+							out.println("Not currently logged in.");
+					}
+					%>
+			</li>
+	</ul>
+</div>
+<div class='main'>
 <%
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
@@ -26,7 +51,7 @@ else
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
 	out.println("<h1>Your Shopping Cart</h1>");
-	out.print("<table><tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
+	out.print("<table class='showcart'><tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
 	out.println("<th>Price</th><th>Subtotal</th></tr>");
 
 	double total =0;
@@ -71,7 +96,7 @@ else
 		out.println("</tr>");
 		total = total +pr*qty;
 	}
-	out.println("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td>"
+	out.println("<tr><td colspan=\"3\"></td><td><b>Order Total</b></td>"
 			+"<td align=\"right\">"+currFormat.format(total)+"</td></tr>");
 	out.println("</table>");
 
@@ -79,6 +104,7 @@ else
 }
 %>
 <h2><a href="listprod.jsp">Continue Shopping</a></h2>
+</div>
 </body>
 </html> 
 
