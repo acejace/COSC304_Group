@@ -169,6 +169,14 @@ div.main{
     border-radius: 25px;
     min-height: 80%;
 } 
+div.text{
+    background-color: transparent;
+    color: white;
+    font-size: 00.75vw;
+    margin-top: 5%;
+    padding-left: 5%;
+    width: 80%
+}
 ul.nav{
     list-style-type: none;
     margin: 0;
