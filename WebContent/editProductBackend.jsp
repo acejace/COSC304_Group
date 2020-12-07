@@ -18,12 +18,10 @@ try{
     String uid = "SA";
     String pw = "YourStrong@Passw0rd";
     Connection con = DriverManager.getConnection(url, uid, pw);
-    Statement stmt = con.createStatement();
     String sql = "";
     String delOrChange = request.getParameter("requests");
     String id = request.getParameter("id");
-    //int check = Integer.parseInt(delOrChange);
-    //out.print(delOrChange);
+
     if(delOrChange.equalsIgnoreCase("0")){
         String name = request.getParameter("name");
         String price = request.getParameter("price");
@@ -33,13 +31,15 @@ try{
         sql = String.format("UPDATE product SET productName = %s, productPrice = %s, ",name,price);
         sql += String.format("productImageURL = %s, productDesc = %s, categoryId = %s ",imgURL, desc, catId);
         sql += String.format("WHERE productId = %s ", id);
+        out.println("Has been Updated");
     
     }else{
         sql = String.format("Delete product WHERE productId = %s", id);
+        out.println("Has been Deleted");
     }
 
-    out.print(sql);
-    //ResultSet rst = stmt.executeQuery(sql);
+    PreparedStatement pstmt = con.prepareStatement(sql);
+    pstmt.executeUpdate();
  
     
 }catch(Exception ex){

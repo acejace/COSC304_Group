@@ -14,7 +14,6 @@
                 inputs[3] = (document.getElementById("desc").value);
                 inputs[4] = (document.getElementById("catId").value);
                 inputs[5] = (document.getElementById("id").value);
-                alert("This is 0");
                 $("#form-msg").load("editProductBackend.jsp?id=" + inputs[5] + "&name=" + inputs[0] + "&price=" + inputs[1] + "&url=" + inputs[2] + "&desc=" + inputs[3] + "&catId=" + inputs[4] + "&requests=0");
             });
 
@@ -26,7 +25,6 @@
                 inputs[3] = (document.getElementById("desc").value);
                 inputs[4] = (document.getElementById("catId").value);
                 inputs[5] = (document.getElementById("id").value);
-                alert("This is 1");
                 $("#form-msg").load("editProductBackend.jsp?id=" + inputs[5] + "&name=" + inputs[0] + "&price=" + inputs[1] + "&url=" + inputs[2] + "&desc=" + inputs[3] + "&catId=" + inputs[4] + "&requests=1");
             });
         });
@@ -60,13 +58,10 @@ int categoryId = rst.getInt(7);
 
 %>
 
-
-
 <body>
     <div style="text-align:center; display: block;">
-        <h1>Change User</h1>
+        <h1>Change Product</h1>
         <form name="updateForm" method=POST action="admin.jsp">
-            <%out.print(String.format("<img src='data:image/gif;base64,%s'>",image));%>
             <table style="display:inline">
                 <tr>
                     <td>
@@ -74,7 +69,7 @@ int categoryId = rst.getInt(7);
                             <font face="Arial, Helvetica, sans-serif" size="2">Product Name:</font>
                         </div>
                     </td>
-                    <td><input type="text" id="name" name="Product Name" value=<%out.print(String.format("%s",name));%>>
+                    <td><input type="text" id="name" name="Product Name" value='<%out.print(String.format("%s",name));%>'>
                     </td>
                 </tr>
                 <tr>
@@ -92,7 +87,7 @@ int categoryId = rst.getInt(7);
                             <font face="Arial, Helvetica, sans-serif" size="2">imageURL</font>
                         </div>
                     </td>
-                    <td><input type="text" id=url name="URL" value=<%out.print(String.format("%s",picURL));%>></td>
+                    <td><input type="text" id=url name="URL" value='<%out.print(String.format("%s",picURL));%>'></td>
                 </tr>
                 <tr>
                     <td>
@@ -101,7 +96,7 @@ int categoryId = rst.getInt(7);
                         </div>
                     </td>
                     <td><input type="text" id="desc" name="Description"
-                            value=<%out.print(String.format("%s",productDesc));%>></td>
+                            value='<%out.print(String.format("%s",productDesc));%>'></td>
                 </tr>
                 <tr>
                     <td>
@@ -118,8 +113,8 @@ int categoryId = rst.getInt(7);
                 </tr>
             </table>
             <br />
-            <input class="submit" type="submit" name="Change" id="Change" value="Change Account">
-            <input class="submit" type="submit" name="Delete" id="Delete" value="Delete Account">
+            <input class="submit" type="submit" name="Change" id="Change" value="Change Product">
+            <input class="submit" type="submit" name="Delete" id="Delete" value="Delete Product">
             <p id="form-msg"></p>
         </form>
 
