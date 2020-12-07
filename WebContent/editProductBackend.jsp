@@ -33,13 +33,15 @@ try{
         sql = String.format("UPDATE product SET productName = %s, productPrice = %s, ",name,price);
         sql += String.format("productImageURL = %s, productDesc = %s, categoryId = %s ",imgURL, desc, catId);
         sql += String.format("WHERE productId = %s ", id);
+        out.print("has been updated");
     
     }else{
         sql = String.format("Delete product WHERE productId = %s", id);
+        out.print("Has been deleted");
     }
 
-    out.print(sql);
-    //ResultSet rst = stmt.executeQuery(sql);
+    
+    ResultSet rst = stmt.executeQuery(sql);
  
     
 }catch(Exception ex){
